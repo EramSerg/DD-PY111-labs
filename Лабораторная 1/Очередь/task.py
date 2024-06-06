@@ -11,8 +11,8 @@ class Queue:
         TODO Описать где начало и конец очереди
         """
         self.queue_ = []  # инициализировать список
-        self.start_queue = self.queue_[0]
-        self.end_queue = self.queue_[-1]
+        #self.start_queue = self.queue_[0]
+        #self.end_queue = self.queue_[-1]
 
     def enqueue(self, elem: Any) -> None:
         """
@@ -33,7 +33,7 @@ class Queue:
         if not self.queue_:     # реализовать метод dequeue
             raise IndexError('Очередь пуста!')
 
-        return self.start_queue
+        return self.queue_.pop(0)
 
     def peek(self, ind: int = 0) -> Any:
         """
@@ -61,3 +61,23 @@ class Queue:
     def __len__(self):
         """ Количество элементов в очереди. """
         return len(self.queue_)     # реализовать метод __len__
+
+
+if __name__ == '__main__':
+    MyQueue = Queue()
+    MyQueue.enqueue('p')
+    MyQueue.enqueue('y')
+    MyQueue.enqueue('t')
+    MyQueue.enqueue('h')
+    MyQueue.enqueue('o')
+    MyQueue.enqueue('n')
+    print(MyQueue.__len__())
+    print(MyQueue.queue_)
+    print(MyQueue.peek(1))
+    print(MyQueue.peek(4))
+    MyQueue.dequeue()
+    print(MyQueue.__len__())
+    print(MyQueue.queue_)
+    MyQueue.dequeue()
+    print(MyQueue.__len__())
+    print(MyQueue.queue_)
